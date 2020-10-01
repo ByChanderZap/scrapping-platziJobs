@@ -1,6 +1,8 @@
 require('dotenv').config()
+const express = require('express')
 const ind = require('./scrappers/indeed')
 const methods = require('./utils/axiosMethods.js')
+const PORT = process.env.PORT || 3000
 
 const start = async () => {
     try {
@@ -16,5 +18,15 @@ const start = async () => {
 
 }
 
+const app = express()
 
-start()
+app.use((req, res) => {
+    start()
+    console.log('Something magic happend :o')
+    res.status(200)
+    res.send({Message: "Something magic happend"})
+})
+
+app.listen(PORT, () => {
+    console.log(`Server on port: ${PORT}`)
+})

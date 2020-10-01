@@ -15,6 +15,7 @@ const postInstance = Axios.create({
 const sendPost = async (data) => {
     try {
         const response = await postInstance.post('https://social-jobs-dev-back.herokuapp.com/api/post/create', data)
+        console.log(response.status)
     } catch (error) {
         console.log(error.response.status)
     }

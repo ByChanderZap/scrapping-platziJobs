@@ -1,5 +1,4 @@
 const cheerio = require('cheerio')
-const request = require('request-promise')
 const URI = 'https://www.indeed.com.mx/trabajo?q=programador&l=M%C3%A9xico'
 const ask = require('../utils/axiosMethods.js')
 
@@ -21,15 +20,18 @@ const scrap = async() => {
         const skill = ['Programacion']
         const country = 'mexico'
         const city = $(el).find('div.sjcl span.location').text().split(',')[0].toLowerCase() || "No especificado"
+        const user = process.env.USER_ID
         
         newPost = {
             position,
             image,
+            rating: ['0'],
             salary: parseFloat(salary),
             description,
             company,
             url: joburl,
             skill,
+            user,
             country,
             city
         }

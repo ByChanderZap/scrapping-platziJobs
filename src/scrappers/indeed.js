@@ -14,7 +14,7 @@ const scrap = async() => {
         //  console.log(title)
         const joburl = `https://www.indeed.com.mx` + $(el).find('h2.title a').attr('href')
         const image = 'https://lh3.googleusercontent.com/gUyHrmCpcy5rRMY68W5csIEj60ORJmoqvTr8_WWYL8bDv6hlnKeE_twq5Pw1Y4X3FzI'
-        const salary = $(el).find('span.salaryText').text().replace(/[^0-9\ ]/g, "").split(' ')[0] || 0
+        const salary = $(el).find('span.salaryText').text().replace(/[^0-9\ ]/g, "").split(' ')[0] || 6000
         const description = $(el).find('div.summary').text().replace(/(\n){1,}/g, "")
         const company = $(el).find('div.sjcl div span.company').text().replace(/(\n){1,}/g, "")
         const skill = ['Programacion']

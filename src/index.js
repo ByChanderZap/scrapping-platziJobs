@@ -7,10 +7,7 @@ const PORT = process.env.PORT || 3000
 const start = async () => {
     try {
         const indeedData = await ind()
-        //  const sup = await methods.sendPost(POST_URI, indeedData)
         await methods.createPost(indeedData)
-
-        //  console.log(sup.status)
     } catch (error) {
         console.log(error.message)
     }
@@ -18,10 +15,11 @@ const start = async () => {
 
 }
 
+start()
+
 const app = express()
 
 app.use((req, res) => {
-    start()
     console.log('Something magic happend :o')
     res.status(200)
     res.send({Message: "Something magic happend"})
